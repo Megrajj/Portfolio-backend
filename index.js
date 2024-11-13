@@ -9,13 +9,24 @@ require('dotenv').config();
 
 const EMAIL = process.env.EMAIL_USER;
 const PASSWORD = process.env.EMAIL_PASS;
-
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+
+// CROSS ORIGIN RESOURCE SHARING (CORS)
+const allowedOrigins = ['*'];
+
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 // Connect to MongoDB
 connectDB();
