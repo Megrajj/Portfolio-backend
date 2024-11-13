@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 
 // CROSS ORIGIN RESOURCE SHARING (CORS)
-const allowedOrigins = ['*'];
+const allowedOrigins = ['https://portfolio-frontend-main-eight.vercel.app', '*'];
 
 app.use(cors({
     origin: allowedOrigins,
